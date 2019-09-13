@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import CardList from './components/CardList';
-import peopleStub from './api/stubPeople'; // stub data for testing
 import { peopleUrl } from './api/urls';
 import styled from 'styled-components';
 import getDataAsync from './api/getDataAsync';
+// import peopleStub from './api/stubPeople'; // stub data for testing
 
 const StyledHeader = styled.header`
   padding: 30px 0;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Card from './Card';
 import CardButton from './CardButton';
 import styled from 'styled-components';
