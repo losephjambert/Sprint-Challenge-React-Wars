@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const StyledCard = styled.li`
   background-color: ${props => (props.primary ? `ghostwhite` : 'transparent')};
   max-width: 350px;
-  min-height: 300px;
   padding: 15px;
   transition: 200ms;
   position: relative;
@@ -13,7 +12,7 @@ export const StyledCard = styled.li`
     transform: ${props => (props.primary ? `rotate(2.5deg) scale(1.2)` : 'rotate(0deg) scale(1)')};
   }
   div.image-container {
-    min-height: inherit;
+    min-height: 300px;
     background-color: rgb(240, 240, 240);
   }
   div.content {
