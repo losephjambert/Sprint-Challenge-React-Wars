@@ -2,11 +2,13 @@
   margin: 0;
   padding: 0;
   max-width: 100%;
+  /* outline: 1px solid green; */
 }
 body {
   font-family: sans-serif;
   background-image: url('./sw-bg.jpg');
   background-size: cover;
+  font-size: 62.5%;
 }
 ul {
   list-style-type: none;
