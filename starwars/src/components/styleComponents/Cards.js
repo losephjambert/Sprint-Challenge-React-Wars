@@ -8,9 +8,9 @@ export const StyledCard = styled.li`
   transition: 200ms;
   position: relative;
   z-index: 0;
-  &:not(:nth-last-child(1)):hover {
+  &:hover {
     z-index: 1;
-    transform: rotate(2.5deg) scale(1.2);
+    transform: ${props => (props.primary ? `rotate(2.5deg) scale(1.2)` : 'rotate(0deg) scale(1)')};
   }
   div.image-container {
     min-height: inherit;
@@ -33,7 +33,6 @@ export const StyledCard = styled.li`
       position: relative;
       &:hover {
         cursor: pointer;
-        z-index: 1;
         transform: rotate(2.5deg) scale(1.2);
         box-shadow: 3px 3px 5px 2px black;
       }
