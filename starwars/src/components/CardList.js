@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from './Card';
 import styled from 'styled-components';
 
@@ -11,6 +11,11 @@ const CardListContainer = styled.section`
 
 const CardListTitle = styled.h2`
   font-size: 3rem;
+  padding: 30px 0;
+  padding-bottom: 15px;
+  margin-bottom: 100px;
+  border-bottom: 5px solid black;
+  border-radius: 5px;
 `;
 
 const CardGrid = styled.ul`
@@ -33,7 +38,6 @@ const CardGrid = styled.ul`
 `;
 
 const CardList = ({ people, title }) => {
-  console.log(people);
   const listPeople = people.map((person, key) => <Card key={key} person={person} />);
   return (
     <CardListContainer>
