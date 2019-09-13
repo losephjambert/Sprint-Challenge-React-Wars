@@ -16,14 +16,18 @@ const AppTitle = styled.h1`
 
 const App = () => {
   const [people, setPeople] = useState([]);
+  const [nextPage, setNextPage] = useState(null);
+  const [resultTotal, setResultTotal] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     axios
       .get(peopleUrl)
       .then(response => {
-        const { results } = response.data;
-        console.log(results);
+        const { results, count, next } = response.data;
+        console.log(response);
         setPeople(people => [...people, ...results]);
+        setNextPage(next);
+        setResultTotal(count);
         setIsLoading(isLoading => !isLoading);
       })
       .catch(error => {
@@ -32,12 +36,38 @@ const App = () => {
       });
   }, []);
 
+  const getNextPage = nextPage => {
+    console.log('clicky', nextPage);
+    axios
+      .get(nextPage)
+      .then(response => {
+        const { results, next } = response.data;
+        console.log(response);
+        setPeople(people => [...people, ...results]);
+        setNextPage(next);
+      })
+      .catch(error => {
+        console.log('I have a bad feeling about this');
+        console.error(error);
+      });
+  };
+
   return (
     <div className='App'>
       <StyledHeader>
         <AppTitle>React Wars</AppTitle>
       </StyledHeader>
-      <main>{!isLoading && <CardList title={'The People of Star Wars'} people={people} />}</main>
+      <main>
+        {!isLoading && (
+          <CardList
+            title={'The People of Star Wars'}
+            people={people}
+            nextPage={nextPage}
+            count={resultTotal}
+            onClick={getNextPage}
+          />
+        )}
+      </main>
       <footer>&copy; {new Date().getFullYear()} Disney, I guess?</footer>
     </div>
   );

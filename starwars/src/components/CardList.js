@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Card from './Card';
+import CardButton from './CardButton';
 import styled from 'styled-components';
 
 const CardListContainer = styled.section`
@@ -7,6 +8,7 @@ const CardListContainer = styled.section`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  overflow: hidden;
 `;
 
 const CardListTitle = styled.h2`
@@ -37,8 +39,9 @@ const CardGrid = styled.ul`
   }
 `;
 
-const CardList = ({ people, title }) => {
-  const listPeople = people.map((person, key) => <Card key={key} person={person} />);
+const CardList = ({ people, title, nextPage, count, onClick }) => {
+  let listPeople = people.map((person, key) => <Card key={key} person={person} />);
+  listPeople = [...listPeople, <CardButton key={'next-page'} nextPage={nextPage} onClick={onClick} />];
   return (
     <CardListContainer>
       <CardListTitle>{title}</CardListTitle>
