@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyledCard } from './styleComponents/Cards';
 const CardButton = props => {
+  if (props.nextPage === null) return null;
   return (
     <StyledCard>
       <div className='link'>

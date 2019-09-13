@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import CardList from './components/CardList';
-// import peopleStub from './api/stubPeople'; // stub data for testing
+import peopleStub from './api/stubPeople'; // stub data for testing
 import { peopleUrl } from './api/urls';
 import styled from 'styled-components';
 
@@ -15,26 +15,26 @@ const AppTitle = styled.h1`
 `;
 
 const App = () => {
-  const [people, setPeople] = useState([]);
+  const [people, setPeople] = useState(peopleStub);
   const [nextPage, setNextPage] = useState(null);
   const [resultTotal, setResultTotal] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    axios
-      .get(peopleUrl)
-      .then(response => {
-        const { results, count, next } = response.data;
-        console.log(response);
-        setPeople(people => [...people, ...results]);
-        setNextPage(next);
-        setResultTotal(count);
-        setIsLoading(isLoading => !isLoading);
-      })
-      .catch(error => {
-        console.log('I have a bad feeling about this');
-        console.error(error);
-      });
-  }, []);
+  const [isLoading, setIsLoading] = useState(false);
+  // useEffect(() => {
+  //   axios
+  //     .get(peopleUrl)
+  //     .then(response => {
+  //       const { results, count, next } = response.data;
+  //       console.log(response);
+  //       setPeople(people => [...people, ...results]);
+  //       setNextPage(next);
+  //       setResultTotal(count);
+  //       setIsLoading(isLoading => !isLoading);
+  //     })
+  //     .catch(error => {
+  //       console.log('I have a bad feeling about this');
+  //       console.error(error);
+  //     });
+  // }, []);
 
   const getNextPage = nextPage => {
     console.log('clicky', nextPage);
