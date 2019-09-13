@@ -8,13 +8,13 @@
 
 - It's a conceptual thinking paradigm that can be applied to application development, regardless of the library or framework. More specifically, thinking in react is a non-linear, multi-step process:
 
-1. Create a component hierarchy (Architecture)
-2. Build a static version
-3. Identify the minimal complete UI state
-4. Identify where state should live
-5. Add inverse data flow (allow components deep in the app hierarchy to send data up the chain to effect state changes)
+- Create a component hierarchy (Architecture)
+- Build a static version
+- Identify the minimal complete UI state
+- Identify where state should live
+- Add inverse data flow (allow components deep in the app hierarchy to send data up the chain to effect state changes)
 
-6. Describe state.
+3. Describe state.
 
 - State is the underlying data model that drives user interaction in your application. A less fancy, and more meaningful, definition of state, however is: state is any data in your app that needs to change (mutability) based on user input--form inputs, like buttons, favorites lists, shopping cart items, quantity, authentication, and so on.
 
