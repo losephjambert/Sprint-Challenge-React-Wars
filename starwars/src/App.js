@@ -22,7 +22,6 @@ const App = () => {
   }, []);
 
   const getNextPage = nextPage => {
-    console.log('clicky', nextPage);
     getDataAsync(nextPage, setData);
   };
 
