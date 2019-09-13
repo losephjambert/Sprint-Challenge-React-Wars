@@ -23,3 +23,5 @@
 - Props are typically derived from state. Props are read-only values you can pass around your application to render in various locations. A username is a great example. Let's say I log in to an application. Prior to logging in, the username state value was probably an empty string or a default value, like 'anonymous'. When I log in, the username state value updates to my username: `joeyjoejo`. I can now pass the piece of state as a prop to any component I want. I can then render that prop in those components. If I change my username, it automatically updates in all those components I passed it to as a prop. Fancy stuff.
 
 5. What are side effects, and how do you sync effects in a React component to state or prop changes?
+
+- A side effect is any kind of change inside a React component that requires stepping outside of a React component to implement said change. A common side ffect is making a third-party API request. Pushing an item into an array in state is also a subtle side effect.
